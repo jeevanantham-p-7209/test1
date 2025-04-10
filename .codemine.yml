@@ -1,0 +1,30 @@
+
+#test
+version: 1.0
+stages:
+  - - stage1
+jobs:
+  checkout:
+    description: source cloning job
+    type: source-checkout
+    timeout: 30
+    stage: stage1
+    parameters:
+      branch: master
+  build:
+    description: build project using maven
+    type: maven
+    timeout: 30
+    stage: stage1
+    after:
+    - checkout
+    parameters:
+      requiredArtifacts:
+      - checkout
+      image: maven:latest
+      scripts:
+      - mvn clean package
+      captureArtifacts:
+      - '**/build/**/*.jar'
+      captureUnitTests: 'true'
+      testResultFiles: '**/TEST-*.xml'
