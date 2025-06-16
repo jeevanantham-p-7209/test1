@@ -4,8 +4,7 @@ stages:
 jobs:
   fdasfads:
     description: ''
-    typ
-    e: source-checkout
+    type: source-checkout
     stage: StageOne
     timeout: 30
     priority: major
