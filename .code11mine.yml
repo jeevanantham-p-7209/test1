@@ -1,0 +1,14 @@
+version: 1.
+
+0
+stages:
+- StageOne
+jobs:
+  fdasfads:
+    description: ''
+    type: source-checkout
+    stage: StageOne
+    timeout: 30
+    priority: major
+    parameters:
+      branch: $CM_PIPELINE_ID
